@@ -1,2 +1,2 @@
 # GlobalHackVI
-Connecting possible service and utilities to isolated groups supporting a common cause
+Connecting possible services and utilities across isolated groups supporting the fight against homelessness in St. Louis County
