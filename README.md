@@ -1,2 +1,2 @@
 # GlobalHackVI
-Connecting possible service and utilities to isolated groups supporting a commmon cause
+Connecting possible service and utilities to isolated groups supporting a common cause
