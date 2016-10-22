@@ -11,13 +11,13 @@ function initMap() {
         console.log('hi');
         console.log(place_id);
         console.log(placeDict[place_id]);
-        var beds = placeDict[place_id];
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
         service.getDetails({
             placeId: place_id // grab placeids from multiple shelters and create markers / id
         }, function(place, status) {
+            var beds = placeDict[place_id];
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 var image = 'http://findicons.com/files/icons/1150/tango/32/go_home.png'
                 var marker = new google.maps.Marker({
