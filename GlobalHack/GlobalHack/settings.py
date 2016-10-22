@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rssfeed.apps.RssfeedConfig',
     'MainPage.apps.MainpageConfig',
     'Shelters.apps.SheltersConfig',
+    'Auth.apps.AuthConfig',
 ]
 
 MIDDLEWARE = [

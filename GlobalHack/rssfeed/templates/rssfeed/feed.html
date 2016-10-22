@@ -1,11 +1,14 @@
 <head>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static "/css/feedss.css" %}" />
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+
 </head>
 
 <table>
   <tbody>
     {% for entry in entries %}
+    <script src="js/bootstrap.min.js"></script>
     <tr>
       <td><a href="{{entry.link}}">{{entry.title}}</a></li></td>
       <td>  {{entry.summary}} </td>
