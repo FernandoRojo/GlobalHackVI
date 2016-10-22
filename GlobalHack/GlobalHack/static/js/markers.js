@@ -26,10 +26,9 @@ function initMap() {
                     icon: image,
                     numBeds: beds
                 });
-                console.log('numBeds' + marker['numBeds']);
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                        'Beds Available: ' + marker['numBeds'] + '<br>' +
+                        'Beds Available: ' + placeDict[place.place_id] + '<br>' +
                         place.formatted_address + '</div>');
                     infowindow.open(map, this);
                 });
