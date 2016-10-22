@@ -6,7 +6,7 @@ class Shelter(models.Model):
     Address = models.CharField(max_length=100);
     Phone = models.CharField(max_length=100);
     Email = models.EmailField(max_length=100);
-    Specialty = models.CharField(max_length=100);
+    Specialty = models.CharField(max_length=100,blank = True);
     maxCap = models.IntegerField(default = 0);
     place_id = models.CharField(max_length=40)
     foodAvailable = models.NullBooleanField()
@@ -17,6 +17,9 @@ class Shelter(models.Model):
     otherDetails = models.CharField(max_length=500,blank=True)
     latitude = models.DecimalField(max_digits=9,decimal_places=6)
     longitude = models.DecimalField(max_digits=9,decimal_places=6)
+
+    def __str__(self):
+        return self.Name
 
 
 def MakeShelter(Values):

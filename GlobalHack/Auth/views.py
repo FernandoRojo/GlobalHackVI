@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 
-def index(request):
+
+def login(request):
     context = {'login':login}
-    return render(request, '/registration/base.html', context)
+    return render(request, 'registration/base.html', context)
+
+def logout(request):
+    return render(request, 'registration/base.html')
