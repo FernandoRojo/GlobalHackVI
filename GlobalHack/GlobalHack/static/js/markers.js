@@ -11,6 +11,7 @@ function initMap() {
         console.log('hi');
         console.log(place_id);
         console.log(placeDict[place_id]);
+        var beds = placeDict[place_id];
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
@@ -26,7 +27,7 @@ function initMap() {
                 });
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                        'Beds Available: ' + placeDict[place_id] + '<br>' +
+                        'Beds Available: ' + beds + '<br>' +
                         place.formatted_address + '</div>');
                     infowindow.open(map, this);
                 });
