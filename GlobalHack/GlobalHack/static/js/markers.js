@@ -26,7 +26,7 @@ function initMap() {
                     icon: image,
                     numBeds: beds
                 });
-                console.log('numBeds' + marker[numBeds]);
+                console.log('numBeds' + marker['numBeds']);
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                         'Beds Available: ' + marker['numBeds'] + '<br>' +
