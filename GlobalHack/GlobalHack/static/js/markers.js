@@ -10,6 +10,7 @@ function initMap() {
     for (place_id in placeDict) {
         console.log('hi');
         console.log(place_id);
+        console.log(placeDict[place_id]);
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
@@ -52,7 +53,8 @@ function grabPlaceVars() {
         var maxCap = json_obj[i]["fields"]['maxCap'];
         var currCap = json_obj[i]["fields"]['currCap'];
         var diff = parseInt(maxCap, 10) - parseInt(currCap, 10);
-        //only add beds to the map if availability is > 0 
+        console.log('DIFFFF ' + diff);
+        //only add beds to the map if availability is > 0
         if (diff > 0) {
             placeDict[place_id] = diff;
         }
