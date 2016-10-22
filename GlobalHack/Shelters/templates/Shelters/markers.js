@@ -1,5 +1,5 @@
 function initMap() {
-  var place_ids = ['ChIJ9ycCtziz2IcRacXnN3lsuks', 'ChIJw6Mt3iNL34cRM6Nk9YQtae8'];
+  var place_ids = grabPlaceIds();
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 38.6270,
@@ -32,4 +32,25 @@ function initMap() {
             }
         });
     }
+}
+function Get(yourUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open('GET',yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;
+}
+
+
+function grabPlaceIds() {
+    var json_obj = Get('/shelters/heatdata');
+    json_obj = JSON.parse(json_obj);
+    json_obj = JSON.parse(json_obj);
+    ids = [];
+    for (var i in json_obj){
+        place_id = json_obj[i]["fields"]['place_id'];
+        ids.push(place_id);
+    }
+    return points;
+
+
 }
