@@ -6,14 +6,13 @@ class Shelter(models.Model):
     Address = models.CharField(max_length=100);
     Phone = models.CharField(max_length=100);
     Email = models.EmailField(max_length=100);
-    Specialty = models.CharField(max_length=100,blank = True);
+    Description = models.CharField(max_length=100,blank = True);
     maxCap = models.IntegerField(default = 0);
     place_id = models.CharField(max_length=40)
     foodAvailable = models.NullBooleanField()
     shelterAvailable = models.NullBooleanField()
     hygenicAvailable = models.NullBooleanField()
     counselingAvailable = models.NullBooleanField()
-    otherAvailable = models.NullBooleanField()
     otherDetails = models.CharField(max_length=500,blank=True)
     latitude = models.DecimalField(max_digits=9,decimal_places=6)
     longitude = models.DecimalField(max_digits=9,decimal_places=6)
@@ -29,12 +28,10 @@ def MakeShelter(Values):
     s.Phone = Values['Contact']
     s.Email = Values['ContactE']
     
-    if 'Specialty' in Values:
-        s.Specialty = Values['name'];
+    if 'Description' in Values:
+        s.Description = Values['Description']
     
     if 'maxCap' in Values:
-        if not 'shelterAvailable' in Values:
-            return False
         s.maxCap = Values['maxCap']
     
     s.foodAvailable = 'foodAvailable' in Values
@@ -47,8 +44,6 @@ def MakeShelter(Values):
     s.hygenicAvailable = 'hygenicAvailable' in Values
 
     s.counselingAvailable = 'counselingAvailable' in Values
-    
-    s.otherAvailable = 'otherAvailable' in Values;
     
     if 'otherDetails' in  Values:
         s.otherDetails = Values['otherDetails']

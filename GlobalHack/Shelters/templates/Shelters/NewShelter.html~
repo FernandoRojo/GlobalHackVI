@@ -1,8 +1,0 @@
-<form action="/shelters/NewShelter" method="post">
-    {% csrf_token %}
-    {% for entry in form %}
-    {{entry}}
-    <break>
-     {% endfor %}
-    <input type="submit" value="Submit" />
-</form>

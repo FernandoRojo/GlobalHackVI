@@ -7,5 +7,5 @@ def login(request):
     context = {'login':login}
     return render(request, 'registration/base.html', context)
 
-def logout(request):
-    return render(request, 'registration/base.html')
+def LO(request):
+     return render(request, 'registration/log_out.html')

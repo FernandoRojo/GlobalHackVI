@@ -1,7 +1,0 @@
-<form action="/shelters/NewShelter" method="post">
-    
-    {% csrf_token %}
-    {{form}}
-   
-    <input type="submit" value="Submit" />
-</form>

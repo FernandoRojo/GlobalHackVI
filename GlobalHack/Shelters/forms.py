@@ -12,4 +12,4 @@ class ShelterForm(forms.Form):
     currCap = forms.IntegerField(label="Current Capacity", required = False)
     hygenicAvailable = forms.BooleanField(label='Hygenic Supplies Available', required = False)
     counselingAvailable = forms.BooleanField(label='Counseling Available', required = False)
-    other = forms.CharField(label='Other Useful Information/Available resources', required = False, widget=forms.Textarea)
+    otherDetails = forms.CharField(label='Other Useful Information/Available resources', required = False, widget=forms.Textarea)

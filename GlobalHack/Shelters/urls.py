@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^Map$', views.Map, name = 'Map'),
     url(r'^NewShelter$', views.NewShelter, name = 'NewShelter'),
     url(r'^heatdata$', views.heatdata),
+    url(r'^markers$', views.markers),
 ]

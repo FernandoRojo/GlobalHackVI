@@ -26,3 +26,6 @@ def heatdata(request):
 
     return JsonResponse(data,safe = False)
     
+
+def markers(request):
+    return render(request, 'Shelters/markerMap.html');

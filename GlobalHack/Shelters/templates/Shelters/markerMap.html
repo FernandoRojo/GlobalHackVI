@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-
+  {% load static %}
 <head>
     <title>PlaceID finder</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="markerStyle.css">
+    <link rel="stylesheet" href="{% static 'css/markerStyle.css' %}">
 </head>
 
 <body>
+
     <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
     <div id="map"></div>
-    <script src='markers.js'></script>
+    <script src= "{% static 'js/markers.js' %}" ></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIT5WqChLN0yTAnQNB0r5CN-shZrAtxbM&libraries=places&callback=initMap" async defer></script>
 
 </body>
