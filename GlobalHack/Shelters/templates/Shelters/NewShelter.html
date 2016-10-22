@@ -1,6 +1,14 @@
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "/css/bootstrap.min.css" %}" />
+</head>
+<body>
 <form action="/shelters/NewShelter" method="post">
     {% csrf_token %}
     {{form}}
    
     <input type="submit" value="Submit" />
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
