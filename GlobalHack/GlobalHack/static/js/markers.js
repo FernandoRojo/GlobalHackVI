@@ -1,5 +1,5 @@
 function initMap() {
-  var place_ids = grabPlaceIds();
+    var placeDict = grabPlaceVars();
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 38.6270,
@@ -7,14 +7,14 @@ function initMap() {
         },
         zoom: 15
     });
-    for (var i = 0; i < place_ids.length; i++) {
+    for (place_id in placeDict) {
         console.log('hi');
-        console.log(place_ids[i]);
+        console.log(place_id);
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
         service.getDetails({
-            placeId: place_ids[i] // grab placeids from multiple shelters and create markers / id
+            placeId: place_id // grab placeids from multiple shelters and create markers / id
         }, function(place, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 var image = 'http://findicons.com/files/icons/1150/tango/32/go_home.png'
@@ -25,7 +25,7 @@ function initMap() {
                 });
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                        'Place ID: ' + place.place_id + '<br>' +
+                        'Beds Available: ' + placeDict[place_id] + '<br>' +
                         place.formatted_address + '</div>');
                     infowindow.open(map, this);
                 });
@@ -33,24 +33,31 @@ function initMap() {
         });
     }
 }
-function Get(yourUrl){
+
+function Get(yourUrl) {
     var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open('GET',yourUrl,false);
+    Httpreq.open('GET', yourUrl, false);
     Httpreq.send(null);
     return Httpreq.responseText;
 }
 
 
-function grabPlaceIds() {
+function grabPlaceVars() {
     var json_obj = Get('/shelters/heatdata');
     json_obj = JSON.parse(json_obj);
     json_obj = JSON.parse(json_obj);
-    ids = [];
-    for (var i in json_obj){
-        place_id = json_obj[i]["fields"]['place_id'];
-        ids.push(place_id);
+    var placeDict = {};
+    for (var i in json_obj) {
+        var place_id = json_obj[i]["fields"]['place_id'];
+        var maxCap = json_obj[i]["fields"]['maxCap'];
+        var currCap = json_obj[i]["fields"]['currCap'];
+        var diff = parseInt(maxCap, 10) - parseInt(currCap, 10);
+        //only add beds to the map if availability is > 0 
+        if (diff > 0) {
+            placeDict[place_id] = diff;
+        }
     }
-    return ids;
+    return placeDict;
 
 
 }
