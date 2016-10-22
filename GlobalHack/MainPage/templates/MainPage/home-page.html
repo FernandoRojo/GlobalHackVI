@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang=''>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+   <title>CSS MenuMaker</title>
+</head>
+<body>
+
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'>Home</a></li>
+   <li><a href='#'>Forms</a></li>
+   <li><a href='#'>Help</a></li>
+   <li><a href='#'>About</a></li>
+</ul>
+</div>
+
+<body>
+  <h1> Google Map </h1>
+  <div id="map2w">My map will go here</div>
+  <div id="map" style="width:400px;height:400px;background:yellow"></div>
+
+  <script>
+  function myMap() {
+    var mapCanvas = document.getElementById("map");
+    var mapOptions = {
+      center: new google.maps.LatLng(38.6270, -90.1994), zoom: 10
+    };
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+  }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+</body>
+
+</body>
+<html>
