@@ -23,11 +23,13 @@ function initMap() {
                 var marker = new google.maps.Marker({
                     map: map,
                     position: place.geometry.location,
-                    icon: image
+                    icon: image,
+                    numBeds: beds
                 });
+                console.log('numBeds' + marker[numBeds]);
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                        'Beds Available: ' + beds + '<br>' +
+                        'Beds Available: ' + marker['numBeds'] + '<br>' +
                         place.formatted_address + '</div>');
                     infowindow.open(map, this);
                 });
