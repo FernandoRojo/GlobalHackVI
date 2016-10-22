@@ -1,0 +1,36 @@
+
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse:collapse;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+</head>
+<body>
+
+<table id="demo"></table>
+
+<script type="text/javascript">
+var x = new XMLHttpRequest();
+console.log(2);
+x.open("GET", "/rssfeed/rss", true);
+for (i in x){
+  console.log(i + ": " + x.i);
+}
+console.log(x.getResponseUrl);
+x.onreadystatechange = function () {
+  if (x.readyState == 4 && x.status == 200)
+  {
+    var doc = x.responseXML;
+    console.log(doc);
+  }
+};
+x.send(null);
+</script>
+</body>
+</html>

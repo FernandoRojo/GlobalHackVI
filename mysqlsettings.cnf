@@ -1,0 +1,7 @@
+[client]
+database = GlobalHack
+host = localhost
+user = GHVI
+password = "global hack"
+default-character-set = utf8
+

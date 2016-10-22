@@ -1,0 +1,22 @@
+
+from django.conf.urls import url
+from django.shortcuts import render
+from django.http import HttpResponse, HttpRequest
+from .forms import ShelterForm
+# Create your views here.
+import feedparser
+
+def index(request):
+    return render(request, 'rssfeed/index.html');
+
+
+def NewShelter(request):
+    if request.method == 'POST':
+        ShelterForm(request.POST)
+        if form.is_valid():
+            return HttpResponse("Thanks");
+    else:
+        form = ShelterForm();
+    return render(request, 'Shelters/NewShelter.html', {'form': form})
+
+

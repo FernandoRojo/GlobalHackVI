@@ -1,0 +1,10 @@
+tbody {
+    background-color: lightblue;
+}
+table {
+    background-color: green;
+}
+td {
+    color: navy;
+    margin-left: 20px;
+}

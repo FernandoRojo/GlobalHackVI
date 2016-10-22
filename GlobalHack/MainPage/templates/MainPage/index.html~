@@ -1,0 +1,9 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>WebApp</title>
+</head>
+<body>
+  <iframe src="rssfeed.html" height="500" width="600"></iframe>
+</body>
+</html>

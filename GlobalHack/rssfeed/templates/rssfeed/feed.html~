@@ -1,0 +1,15 @@
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "/css/feedss.css" %}" />
+</head>
+
+<table>
+  <tbody>
+    {% for entry in entries %}
+    <tr>
+      <td><a href="{{entry.link}}">{{entry.title}}</a></li></td>
+      <td>  {{entry.summary}} </td>
+    </tr>
+    {% endfor %}
+</table>
+</tbody>

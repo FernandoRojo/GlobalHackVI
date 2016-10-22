@@ -1,0 +1,16 @@
+tbody {
+    background-color: lightblue;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+table {
+    background-color: green;
+    margin-left:auto;
+    margin-right:auto;
+}
+td {
+    color: navy;
+    margin-left: 20px;
+    text-align: center;
+}
