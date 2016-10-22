@@ -125,3 +125,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#page after you log in
+LOGIN_REDIRECT_URL = 'home'

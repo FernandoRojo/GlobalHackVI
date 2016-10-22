@@ -8,6 +8,7 @@ class Shelter(models.Model):
     Email = models.EmailField(max_length=100);
     Specialty = models.CharField(max_length=100);
     maxCap = models.IntegerField(default = 0);
+    place_id = models.CharField(max_length=40)
     foodAvailable = models.NullBooleanField()
     shelterAvailable = models.NullBooleanField()
     hygenicAvailable = models.NullBooleanField()
@@ -49,9 +50,11 @@ def MakeShelter(Values):
     if 'otherDetails' in  Values:
         s.otherDetails = Values['otherDetails']
     
+                                
     g = GoogleV3()
     g = g.geocode(s.Address)
     s.latitude = g.latitude
     s.longitude = g.longitude
+    s.place_id = g.raw['place_id']
     s.save();
     return True
