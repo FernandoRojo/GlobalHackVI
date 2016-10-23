@@ -51,7 +51,7 @@
                             <a href="#about">About</a>
                         </li>
                         <li>
-                            <a href="#forms">Forms</a>
+                            <a href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/shelters/NewShelter">Forms</a>
                         </li>
                         <li>
                             <a href="#contact">Contact</a>
@@ -97,9 +97,33 @@
 			       LIVE UPDATES
 			            </div>
 			     <div class="rss-content">
-			            Content
-				         </div>
-			          </div>
+          <div>
+            <!-- <head>
+              {% load static %}
+
+              <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
+
+              <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+            </head> -->
+            <h3> Real Time Feed </h3>
+
+                <table>
+                  <tbody>
+                    {% for entry in entries %}
+                    <script src={% static "js/bootstrap.min.js" %}></script>
+                    <tr>
+                      <td><a href="{{entry.link}}">{{entry.title}}</a></li></td>
+                      <td>  {{entry.summary}} </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+
+          </div>
+     </div>
+     </div>
        </div>
    </div>
 
@@ -110,7 +134,7 @@
 
     <!-- About Us -->
     <div class="featurette" id="about">
-        <img class="featurette-image img-circle img-responsive pull-right" src= {% static "img/cage.png" %}>
+        <img class="featurette-image img-circle img-responsive pull-right" src= {% static "assets/img/cage.png" %}>
         <h2 class="featurette-heading" style="padding-top:3%;">About Us</h2>
         <p class="lead">We're a team of big dicked comp sci majors looking change the world with our superior intellect</p>
     </div>
@@ -120,7 +144,7 @@
     <!-- Forms -->
     <div class="featurette" id="forms">
         <h2 class="featurette-heading">Forms:
-            <a href="shelters/NewShelter"><span class="text-muted">Add a Shelter</span></a>
+            <a href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/shelters/NewShelter"><span class="text-muted">Add a Shelter</span></a>
         </h2>
     </div>
 
