@@ -55,9 +55,8 @@ function grabPlaceVars() {
         var maxCap = json_obj[i]["fields"]['maxCap'];
         var currCap = json_obj[i]["fields"]['currCap'];
         var diff = parseInt(maxCap, 10) - parseInt(currCap, 10);
-        console.log('DIFFFF ' + diff);
         //only add beds to the map if availability is > 0
-        if (toggle==false) {
+        if (toggle=='off') {
             placeDict[place_id] = diff;
         }
         else if (diff > 0){
@@ -70,13 +69,12 @@ function grabPlaceVars() {
 }
 
 function toggleBeds(){
-  var toggleB = document.getElementById('toggleBed').value
-  console.log(toggleB);
-  if (toggleB == true){
-    document.getElementById('toggleBed').value = false;
+  console.log(this.value);
+  if (this.value == 'on'){
+    (this.value = 'off');
   }
   else{
-    document.getElementById('toggleBed').value = true;
+    this.value = 'on';
   }
   initMap();
 }
