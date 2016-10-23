@@ -24,7 +24,7 @@ function initMap() {
                 google.maps.event.addListener(marker, 'click', function() {
                     var addr = place.formatted_address;
                     addr = addr.split(' ').join('+');
-                    alert(place.name);
+                    console.log(place);
                     var url = 'https://www.google.com/maps/dir//' + addr;
                     infowindow.setContent('<div>' + place.name + '<br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
@@ -49,7 +49,7 @@ function grabPlaceVars() {
     var json_obj = Get('/shelters/heatdata');
     json_obj = JSON.parse(json_obj);
     json_obj = JSON.parse(json_obj);
-    console.log(json_obj);
+    //console.log(json_obj);
     var placeDict = {};
     for (var i in json_obj) {
         var place_id = json_obj[i]["fields"]['place_id'];
