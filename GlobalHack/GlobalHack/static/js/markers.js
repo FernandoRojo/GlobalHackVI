@@ -29,8 +29,8 @@ function initMap() {
                     addr = addr.split(' ').join('+');
                     var url = 'https://www.google.com/maps/dir//' + addr;
                     alert(place_id);
-                    infowindow.setContent('<div><strong>' + placeDict[place.place_id][1] + '</strong><br>' +
-                        'Beds Available: ' + placeDict[place.place_id][0] + '<br>' +
+                    infowindow.setContent('<div><strong>' + placeDict[place_id][1] + '</strong><br>' +
+                        'Beds Available: ' + placeDict[place_id][0] + '<br>' +
                         place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
                     infowindow.open(map, this);
                 });
