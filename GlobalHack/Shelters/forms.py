@@ -13,3 +13,4 @@ class ShelterForm(forms.Form):
     hygenicAvailable = forms.BooleanField(label='Hygenic Supplies Available', required = False)
     counselingAvailable = forms.BooleanField(label='Counseling Available', required = False)
     otherDetails = forms.CharField(label='Other Useful Information/Available resources', required = False, widget=forms.Textarea)
+    ReferralCode = forms.CharField(label='Referral Code',max_length=13)

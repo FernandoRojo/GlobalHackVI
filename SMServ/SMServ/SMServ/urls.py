@@ -1,4 +1,5 @@
-"""GlobalHack URL Configuration
+"""SMServ URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
 Examples:
@@ -12,18 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^rssfeed/', include('rssfeed.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^main/',include('MainPage.urls')),
-    url(r'^formbuilder/', include('formbuilder.urls')),
-    url(r'^shelters/', include('Shelters.urls')),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout,name='logout')
-    
 ]
