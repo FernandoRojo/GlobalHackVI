@@ -1,0 +1,30 @@
+.rss-container {
+	width:30%;
+	margin-right:2%;
+	float:right;
+	border-style: solid;
+	background-color: #272822;
+	border-color:#272822;
+	border-top-left-radius:25px;
+	border-top-right-radius:25px;
+}
+
+.rss-header {
+	top:0px;
+	display:block;
+	height:5%;
+	width:100%;
+	border-style:solid;
+	border-color:#272822;
+	background-color: #272822;
+	font-size:200%;
+	color:white;
+	border-top-left-radius:25px;
+	border-top-right-radius:25px;
+}
+
+.rss-content {
+	height:90%;
+	bottom:0px;
+	background-color:#d3d3d3;
+}

@@ -1,8 +1,7 @@
-/*
- * Start Bootstrap - One Page Wonder (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
+@font-face {
+    font-family: coverfont;
+    src: url(above.ttf);
+}
 
 body {
     margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
@@ -12,15 +11,13 @@ body {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('http://www.wallpapers13.com/wp-content/uploads/2016/02/Landscape-nature-rocky-mountains-with-jagged-peaks-pine-trees-mountain-lake-sky-with-white-cloud-Desktop-HD-Wallpaper-3840x2400-915x515.jpg') no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background: url("clouds.jpg");
+    background-size:cover;
 }
 
 .headline {
-    padding: 120px 0;
+    padding-top:2%;
+    padding-bottom: 2%;
 }
 
 .headline h1 {
@@ -54,6 +51,31 @@ body {
 footer {
     margin: 50px 0;
 }
+
+
+
+.title{
+	font-family: coverfont;
+	color:white;
+}
+
+.subtitle{
+	font-family: serif;
+	color:white;
+	padding-left:30%;
+	padding-right:30%;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.map-container {
+	width:65%;
+	height:80%;
+	padding-bottom:5%;
+	margin-left:2%;
+	display:inline-block;
+}
+
 
 @media(max-width:1200px) {
     .headline h1 {
@@ -112,12 +134,24 @@ footer {
 }
 
 @media(max-width:768px) {
-    .container {
-        margin: 0 15px;
+    .map-container {
+	  width:50%
+	  margin-left:2%;
+	  float:left;
+	  display:inline-block;
     }
+
+    .rss-container {
+	    width:30%;
+	    margin-right:2%;
+	    float:right:
+	    display: inline-block;
+    }
+
 
     .featurette-divider {
         margin: 40px 0;
+	  margin-top:100%;
     }
 
     .featurette-heading {
@@ -171,15 +205,4 @@ footer {
         margin-bottom: 10px;
         margin-left: 0;
     }
-}
-
-.title{
-    text-shadow: 2px 2px white;
-    color: black
-}
-
-.subtitle{
-    text-shadow: 2px 2px white;
-        color: black;
-
 }
