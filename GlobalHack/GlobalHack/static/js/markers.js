@@ -8,28 +8,27 @@ function initMap() {
         zoom: 15
     });
     for (place_id in placeDict) {
-        console.log('hi');
-        console.log(place_id);
-        console.log(placeDict[place_id]);
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
         service.getDetails({
             placeId: place_id // grab placeids from multiple shelters and create markers / id
         }, function(place, status) {
-            var beds = placeDict[place_id];
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 var image = 'http://findicons.com/files/icons/1150/tango/32/go_home.png'
                 var marker = new google.maps.Marker({
                     map: map,
                     position: place.geometry.location,
-                    icon: image,
-                    numBeds: beds
+                    icon: image
                 });
                 google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                    var addr = place.formatted_address;
+                    addr = addr.split(' ').join('+');
+
+                    var url = 'https://www.google.com/maps/dir//' + addr;
+                    infowindow.setContent('<div>' + place.name + '<br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
-                        place.formatted_address + '</div>');
+                        place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
                     infowindow.open(map, this);
                 });
             }
@@ -50,6 +49,7 @@ function grabPlaceVars() {
     var json_obj = Get('/shelters/heatdata');
     json_obj = JSON.parse(json_obj);
     json_obj = JSON.parse(json_obj);
+    console.log(json_obj);
     var placeDict = {};
     for (var i in json_obj) {
         var place_id = json_obj[i]["fields"]['place_id'];
