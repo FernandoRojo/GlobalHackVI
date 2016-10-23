@@ -29,7 +29,7 @@ function initMap() {
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
-                        place.formatted_address + '</div>');
+                        place.formatted_address + '</div>' +'<br><a href="https://www.google.com/maps/dir//"' +place.formatted_address'>Directions to Here </a>');
                     infowindow.open(map, this);
                 });
             }
