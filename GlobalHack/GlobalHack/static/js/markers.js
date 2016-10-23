@@ -61,6 +61,7 @@ function grabPlaceVars() {
         var diff = maxCap - currCap;
         console.log(maxCap);
         console.log(currCap);
+        console.log('diff ' + diff);
         //only add beds to the map if availability is > 0 and toggle is on
         if (toggle=='on' || diff > 0) {
             placeDict[place_id] = [diff,name];
