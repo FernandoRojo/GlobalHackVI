@@ -1,8 +1,6 @@
 function initMap() {
     var placeDict = grabPlaceVars();
-    for (x in placeDict){
-      console.log(x);
-    }
+    console.log
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 38.6270,
@@ -24,14 +22,16 @@ function initMap() {
                     position: place.geometry.location,
                     icon: image
                 });
+                var addr = place.formatted_address;
+                addr = addr.split(' ').join('+');
+                var url = 'https://www.google.com/maps/dir//' + addr;
+                var contentString = ('<div><strong>' + placeDict[place_id][1] + '</strong><br>' +
+                    'Beds Available: ' + placeDict[place_id][0] + '<br>' +
+                    place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
                 google.maps.event.addListener(marker, 'click', function() {
-                    var addr = place.formatted_address;
-                    addr = addr.split(' ').join('+');
-                    var url = 'https://www.google.com/maps/dir//' + addr;
-                    alert(place_id);
-                    infowindow.setContent('<div><strong>' + placeDict[place_id][1] + '</strong><br>' +
-                        'Beds Available: ' + placeDict[place_id][0] + '<br>' +
-                        place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
                     infowindow.open(map, this);
                 });
             }
@@ -64,10 +64,10 @@ function grabPlaceVars() {
         var diff = maxCap - currCap;
         console.log(maxCap);
         console.log(currCap);
-        console.log('diff ' + [diff,name]);
+        console.log('diff ' + [diff, name]);
         //only add beds to the map if availability is > 0 and toggle is on
-        if (toggle=='off' || diff > 0) {
-            placeDict[place_id] = [diff,name];
+        if (toggle == 'off' || diff > 0) {
+            placeDict[place_id] = [diff, name];
         }
     }
     return placeDict;
@@ -75,14 +75,13 @@ function grabPlaceVars() {
 
 }
 
-function toggleBeds(){
-  console.log(document.getElementById('toggleBed').value);
-  var tog = document.getElementById('toggleBed').value;
-  if (tog == 'on'){
-    (document.getElementById('toggleBed').value = 'off');
-  }
-  else{
-    document.getElementById('toggleBed').value = 'on';
-  }
-  initMap();
+function toggleBeds() {
+    console.log(document.getElementById('toggleBed').value);
+    var tog = document.getElementById('toggleBed').value;
+    if (tog == 'on') {
+        (document.getElementById('toggleBed').value = 'off');
+    } else {
+        document.getElementById('toggleBed').value = 'on';
+    }
+    initMap();
 }
