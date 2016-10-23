@@ -28,6 +28,7 @@ function initMap() {
                 });
                 google.maps.event.addListener(marker, 'click', function() {
                     var url = 'https://www.google.com/maps/dir//' + place.formatted_address;
+                    console.log(url);
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
                         place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
