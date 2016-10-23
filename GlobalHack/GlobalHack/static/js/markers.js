@@ -27,7 +27,7 @@ function initMap() {
                     addr = addr.split(' ').join('+');
 
                     var url = 'https://www.google.com/maps/dir//' + addr;
-                    infowindow.setContent('<div><strong>plpl' + place.name + '</strong><br>' +
+                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
                         place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
                     infowindow.open(map, this);
@@ -57,10 +57,10 @@ function grabPlaceVars() {
         var currCap = json_obj[i]["fields"]['currCap'];
         var diff = parseInt(maxCap, 10) - parseInt(currCap, 10);
         //only add beds to the map if availability is > 0
-        if (toggle=='off') {
-            placeDict[place_id] = diff;
-        }
-        else if (diff > 0){
+        // if (toggle=='off') {
+        //     placeDict[place_id] = diff;
+        // }
+          if (diff > 0){
           placeDict[place_id] = diff;
         }
     }
