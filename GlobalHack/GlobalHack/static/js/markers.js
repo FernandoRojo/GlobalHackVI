@@ -51,7 +51,9 @@ function grabPlaceVars() {
     json_obj = JSON.parse(json_obj);
     //console.log(json_obj);
     var placeDict = {};
+    console.log(json_obj);
     for (var i in json_obj) {
+
         var place_id = json_obj[i]["fields"]['place_id'];
         var maxCap = json_obj[i]["fields"]['maxCap'];
         var currCap = json_obj[i]["fields"]['currCap'];
@@ -59,7 +61,7 @@ function grabPlaceVars() {
         var diff = parseInt(maxCap, 10) - parseInt(currCap, 10);
         //only add beds to the map if availability is > 0 and toggle is on
         if (toggle=='on' || diff > 0) {
-            placeDict[place_id] = diff;
+            placeDict[place_id] = [diff,name];
         }
     }
     return placeDict;
