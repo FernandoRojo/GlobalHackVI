@@ -8,6 +8,9 @@ function initMap() {
         zoom: 15
     });
     for (place_id in placeDict) {
+        console.log('hi');
+        console.log(place_id);
+        console.log(placeDict[place_id]);
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
@@ -20,16 +23,13 @@ function initMap() {
                 var marker = new google.maps.Marker({
                     map: map,
                     position: place.geometry.location,
-                    icon: image
+                    icon: image,
+                    numBeds: beds
                 });
                 google.maps.event.addListener(marker, 'click', function() {
-                    var addr = place.formatted_address;
-                    addr = addr.split(' ').join('+');
-
-                    var url = 'https://www.google.com/maps/dir//' + addr;
                     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
-                        place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
+                        place.formatted_address + '</div>');
                     infowindow.open(map, this);
                 });
             }
