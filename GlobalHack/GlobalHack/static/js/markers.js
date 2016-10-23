@@ -8,9 +8,6 @@ function initMap() {
         zoom: 15
     });
     for (place_id in placeDict) {
-        console.log('hi');
-        console.log(place_id);
-        console.log(placeDict[place_id]);
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
 
@@ -51,6 +48,7 @@ function Get(yourUrl) {
 
 
 function grabPlaceVars() {
+    var toggle = document.getElementById('toggleBed').value;
     var json_obj = Get('/shelters/heatdata');
     json_obj = JSON.parse(json_obj);
     json_obj = JSON.parse(json_obj);
@@ -62,11 +60,19 @@ function grabPlaceVars() {
         var diff = parseInt(maxCap, 10) - parseInt(currCap, 10);
         console.log('DIFFFF ' + diff);
         //only add beds to the map if availability is > 0
-        if (diff > 0) {
+        if (toggle==false) {
             placeDict[place_id] = diff;
+        }
+        else if (diff > 0){
+          placeDict[place_id] = diff;
         }
     }
     return placeDict;
 
 
+}
+
+function toggleBeds(){
+  document.getElementById('toggleBed').value = !document.getElementById('toggleBed').value;
+  initMap();
 }
