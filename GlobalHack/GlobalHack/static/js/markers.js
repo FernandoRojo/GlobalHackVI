@@ -24,7 +24,7 @@ function initMap() {
                 google.maps.event.addListener(marker, 'click', function() {
                     var addr = place.formatted_address;
                     addr = addr.split(' ').join('+');
-
+                    alert(place);
                     var url = 'https://www.google.com/maps/dir//' + addr;
                     infowindow.setContent('<div>' + place.name + '<br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
