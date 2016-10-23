@@ -1,5 +1,6 @@
 function initMap() {
     var placeDict = grabPlaceVars();
+    console.log('dictttt' + placeDict);
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 38.6270,
