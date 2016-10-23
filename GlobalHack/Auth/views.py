@@ -8,4 +8,4 @@ def login(request):
     return render(request, 'registration/base.html', context)
 
 def LO(request):
-     return render(request, 'registration/log_out.html')
+    return render(request, 'registration/logout.html', {'logout': l})

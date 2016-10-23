@@ -2,14 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Simple Login{% endblock %}</title>
+<!--{% load static %} -->
+  <title>{% block title %}CoC Network Login{% endblock %}</title>
+  {% load static %}
+  <link href= {% static "/css/bootstrap.min.css" %} type="text/css" rel="stylesheet">
+  <link href= {% static "/css/one-page-wonder.css" %} type="text/css" rel="stylesheet">
+  <!--{% static "/css/feedss.css" %} -->
 </head>
 <body>
   <header>
     <h1>Django Simple Login</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
-      <a href="{% url 'logout' %}?next=/logout.html">logout</a>
+      <a href="{% url 'logout' %}">logout</a>
     {% else %}
       <a href="{% url 'login' %}">login</a>
     {% endif %}
