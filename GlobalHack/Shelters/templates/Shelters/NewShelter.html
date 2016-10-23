@@ -1,13 +1,66 @@
 <head>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static "/css/bootstrap.min.css" %}" />
+ {% load static %}
+  <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<form action="/shelters/NewShelter" method="post">
-    {% csrf_token %}
-    {{form}}
-   
-    <input type="submit" value="Submit" />
+<h2 class="text-center">New Shelter Registration</h2>
+<br>
+<form action="/shelters/NewShelter" method="post" class="col-centered">
+<label>Organization Name:</label> 
+ <div class='form-group'>
+   {{ form.Name }}
+   </div>
+<label>Organization Description:</label>
+  <div class="form-group">
+    {{ form.Description}}
+   </div>
+<label>Organization Contact #:</label>
+  <div class='form-group'>
+    {{ form.Contact}}
+   </div>
+<label>Organization Contact Email</label>
+  <div class='form-group'>
+    {{ form.ContactE}}
+   </div>
+<label>Organization Address</label>
+  <div class='form-group'>
+    {{ form.Address}}
+   </div>
+<label>Food Available?(Check if yes)</label>
+  <div class='form-group'>
+    {{ form.foodAvailable}}
+   </div>
+<label>Shelter Available?(Check if yes)</label>
+  <div class='form-group'>
+    {{ form.shelterAvailable}}
+   </div>
+<label>Max Capacity:</label>
+  <div class='form-group'>
+    {{ form.maxCap}}
+   </div>
+<label>Current Capacity:</label>
+  <div class='form-group'>
+    {{ form.currCap}}
+   </div>
+<label>Hygenic Services Available?(Check if yes)</label>
+  <div class='form-group'>
+    {{ form.hygenicAvailable}}
+   </div>
+<label>Counselling Available?(Check if yes)</label>
+  <div class='form-group'>
+    {{ form.counselingAvailable}}
+   </div>
+<label>Any other details?</label>
+  <div class='form-group'>
+    {{ form.otherDetails}}
+   </div>
+<label>Referral Code:</label>
+  <div class='form-group'>
+    {{ form.ReferralCode}}
+   </div>
+  {% csrf_token %}
+    <input type="submit" class="btn btn-default" value="Submit"  />
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

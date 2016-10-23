@@ -21,6 +21,11 @@ class Shelter(models.Model):
     def __str__(self):
         return self.Name
 
+class Request(models.Model):
+    Address = models.CharField(max_length=200)
+    latitude = models.DecimalField(max_digits=9,decimal_places=6)
+    longitude = models.DecimalField(max_digits=9,decimal_places=6)
+    Time = models.DateTimeField('date published');
 
 def MakeShelter(Values):
     s = Shelter()

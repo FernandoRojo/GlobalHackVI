@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>One Page Wonder - Start Bootstrap Template</title>
+    <title>Hacking Homeless</title>
 
     <!-- Bootstrap Core CSS -->
     {% load static %}
@@ -70,7 +71,7 @@
                     <div class = "row">
                         <div class = "col-sm-12">
                             <h1 class='title'>Hacking Homeless</h1>
-                            <h3 class='subtitle'>Our mission is to provide homeless shelters with more acurate data to allocate resources at maximum efficiency</h2>
+                            <h3 class='subtitle'>Our mission is to provide homeless shelters with more accurate data to allocate resources at maximum efficiency</h2>
                         </div>
                     </div>
                 </div>
@@ -83,12 +84,12 @@
                             function myMap() {
                                 var mapCanvas = document.getElementById("map");
                                 var mapOptions = {
-                                    center: new google.maps.LatLng(38.6270, -90.1994), zoom: 11
+                                    center: new google.maps.LatLng(38.6270, -90.1994), zoom: 11c
                                 };
                                 var map = new google.maps.Map(mapCanvas, mapOptions);
                             }
                         </script>
-                        <script src={% static "https://maps.googleapis.com/maps/api/js?callback=myMap" %}></script></div>
+                       <script src={% static "https://maps.googleapis.com/maps/api/js?callback=myMap" %}></script></div>
                     </div>
                 </div>
            </div>
@@ -98,15 +99,15 @@
 			            </div>
 			     <div class="rss-content">
           <div>
-            <!-- <head>
+            <head>
               {% load static %}
 
-              <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
+              <link rel="stylesheet" type="text/css" href={% static "css/bootstrap.min.css" %} />
 
-              <link href="css/bootstrap.min.css" rel="stylesheet"/>
+              <link href={% static "css/bootstrap.min.css" %} rel="stylesheet"/>
 
-            </head> -->
-            <h3> Real Time Feed </h3>
+            </head>
+            
 
                 <table>
                   <tbody>
@@ -134,18 +135,20 @@
 
     <!-- About Us -->
     <div class="featurette" id="about">
-        <img class="featurette-image img-circle img-responsive pull-right" src= {% static "assets/img/cage.png" %}>
-        <h2 class="featurette-heading" style="padding-top:3%;">About Us</h2>
-        <p class="lead">We're a team of big dicked comp sci majors looking change the world with our superior intellect</p>
+        <img class="featurette-image img-circle img-responsive pull-right" src= {% static ""  %}>
+        <h2 class="featurette-heading" style="padding-top:3%;">About</h2>
+        <p class="lead">We're a team of WashU computer science enthusiasts looking to hack homelessness right here here in St. Louis, MO. </p>
     </div>
 
     <hr class="featurette-divider">
 
     <!-- Forms -->
     <div class="featurette" id="forms">
-        <h2 class="featurette-heading">Forms:
-            <a href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/shelters/NewShelter"><span class="text-muted">Add a Shelter</span></a>
-        </h2>
+        <h2 class="featurette-heading">Forms</h2>
+            <p class="lead">
+	      <a href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/shelters/NewShelter"><span class="text-muted">Add a Shelter (click here) </span></a>
+	    </p>
+        
     </div>
 
     <hr class="featurette-divider">
@@ -153,9 +156,10 @@
     <!-- Contact -->
     <div class="featurette" id="contact">
         <h2 class="featurette-heading">Contact</h2>
-        <p class="lead">Tyler Perin - head developer and dictator: perintyler@gmail.com </p>
+        <p class="lead">If you are in need of emergency shelter or food, be sure to text 805-399-2192 your current address to get turn-by-turn directions to the nearest facility that can help.</p>
     </div>
-
+    <p2>
+Alternatively, call 314-802-5444 for a intake specialist with the Emergency Shelter Hotline for St. Louis County. The Toll Free number is 1-866-802-7155, and the line for those with Hearing or Speech Impairments is 314-802-5348. </p2>
     <hr class="featurette-divider">
 
 </div>

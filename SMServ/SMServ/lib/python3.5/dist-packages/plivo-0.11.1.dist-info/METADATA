@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: plivo
+Version: 0.11.1
+Summary: Plivo Python library
+Home-page: https://github.com/plivo/plivo-python
+Author: Plivo Team
+Author-email: hello@plivo.com
+License: UNKNOWN
+Keywords: plivo,rest
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Communications :: Telephony
+Requires-Dist: requests (>=0.10.8)
+
+Plivo Python library
+
+

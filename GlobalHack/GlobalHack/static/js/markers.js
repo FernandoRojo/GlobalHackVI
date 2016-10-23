@@ -8,6 +8,7 @@ function initMap() {
         },
         zoom: 15
     });
+    var json_obj = Get('/shelters/heatdata');
     for (place_id in placeDict) {
         var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
@@ -25,10 +26,8 @@ function initMap() {
                 var addr = place.formatted_address;
                 addr = addr.split(' ').join('+');
                 var url = 'https://www.google.com/maps/dir//' + addr;
-		alert(placeDict[place.place_id][1]);
-		alert(placeDit[place.place_id][0]);
                 var contentString = ('<div><strong>' + placeDict[place.place_id][1] + '</strong><br>' +
-                    'Beds Available: ' + placeDict[place.place_id][0] + '<br>' +
+                    'Beds Available: ' + grabDiff(placeDict[place.place_id][1], json_obj) + '<br>' +
                     place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
                 var infowindow = new google.maps.InfoWindow({
                     content: contentString
@@ -69,12 +68,26 @@ function grabPlaceVars() {
         console.log('diff ' + [diff, name]);
         //only add beds to the map if availability is > 0 and toggle is on
         if (toggle == 'off' || diff > 0) {
-            placeDict[place_id] = [diff, name];
+            placeDict[place_id] = [diff, name, i];
         }
     }
     return placeDict;
 
 
+}
+
+function grabDiff(name, json_obj){
+  json_obj = JSON.parse(json_obj);
+  json_obj = JSON.parse(json_obj);
+  for (var i in json_obj) {
+    var name2 = json_obj[i]["fields"]['Name'];
+    if ( (name.toLowerCase()) == (name2.toLowerCase())){
+      var maxCap = json_obj[i]["fields"]['maxCap'];
+      var currCap = json_obj[i]["fields"]['currCap'];
+      var diff = maxCap - currCap;
+      return (diff);
+    }
+  }
 }
 
 function toggleBeds() {

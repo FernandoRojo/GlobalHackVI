@@ -1,6 +1,6 @@
 var map;
-var markers = []
-var entries = []
+var markers = {}
+var entries = {}
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -9,7 +9,7 @@ function initMap() {
         },
         zoom: 15
     });
-    var json_obj = Get('/shelters/heatdata');
+    var json_obj = Get('/shelters/shelterdata');
     json_obj = JSON.parse(json_obj);
     json_obj = JSON.parse(json_obj);
     console.log(json_obj);
@@ -19,12 +19,8 @@ function initMap() {
         var maxCap = entry["fields"]['maxCap'];
         var currCap = entry["fields"]['currCap'];
         var name = entry["fields"]['Name'];
-        var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
-	entries.push({
-	    key:   place_id,
-	    value: entry
-	});
+	entries[place_id] = entry;
 	service.getDetails({placeId: place_id}, 
 			   function(place, status) {
 			       if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -34,12 +30,8 @@ function initMap() {
 	}
     console.log(entries);
     console.log(markers);
-    for (i in markers){
-	 marker = markers[i];
-	 entry = entries[i];
-	 console.log(i + " : " + entry);
     
-    }
+    
  }
 
  function addMarker(place){
@@ -47,22 +39,15 @@ function initMap() {
      var marker = new google.maps.Marker({
 	 map: map,
 	 position: place.geometry.location,
-	 icon: image
-
+	 icon: image,
+	  animation: google.maps.Animation.DROP
      });
-     infowindow = new google.maps.InfoWindow();
+     var infowindow = new google.maps.InfoWindow(
+	 {content: getContext(place.place_id)});
      google.maps.event.addListener(marker, 'click', function() {
-	 var addr = place.formatted_address;
-	 addr = addr.split(' ').join('+');
-	 var url = 'https://www.google.com/maps/dir//' + addr;
-	 infowindow.open(map, this);
-     });
-     alert(String(place.place_id));
-     alert(entries);
-     markers.push({
-	 key:   place.place_id,
-	 value: marker
-     });
+	 	 infowindow.open(map, this);
+	      });
+     markers[place.place_id] = marker;
  }
  function Get(yourUrl) {
      var Httpreq = new XMLHttpRequest(); // a new request
@@ -72,24 +57,30 @@ function initMap() {
  }
 
  function filterMarkers(filter){
-     for (i in markers.length){
-	 markers[i][1].setMap(null);
+      for (i in markers){
+	 markers[i].setMap(null);
      }
      if (filter=='showAll'){
-	 for (i in markers.length){
-	     markers[i][1].setMap(map);
+	 for (i in markers){
+	     markers[i].setMap(map);
 	 }
      }
      else if (filter=='bedsAvailable'){
-	 for (i in markers.length){
-	     var entry = markers[i][0];
-	     if (entry["fields"]["maxCap"]<=entry["fields"]["currCap"])
-		 markers[i][1].setMap(map);
+	 for (i in markers){
+	     var entry = entries[i];
+	     if (entry["fields"]["maxCap"]>entry["fields"]["currCap"])
+		 markers[i].setMap(map);
 	 }
      }
  }
 
+function getContext(place_id){
+    var entry = entries[place_id];
+    return '<div><strong>' + entry["fields"]["Name"] + '</strong><br>' +
+        'Beds Available: ' +  (entry["fields"]["maxCap"]-entry["fields"]["currCap"]) + '<br>' 
+    + entry["fields"]["Address"] + '<br> <a href=' + "apple" + '>Directions to Here </a><br></div>';
 
+}
  function toggleBeds(){
      console.log(document.getElementById('toggleBed').value);
      var tog = document.getElementById('toggleBed').value;

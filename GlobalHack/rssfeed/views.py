@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpRequest
 # Create your views here.
 from .models import Item
 from .feeds import ShelterFeed
+
 import feedparser
 
 def index(request):

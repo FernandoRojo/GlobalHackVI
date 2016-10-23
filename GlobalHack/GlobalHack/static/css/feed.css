@@ -1,30 +1,49 @@
 .rss-container {
-	width:30%;
-	margin-right:2%;
-	float:right;
-	border-style: solid;
-	background-color: #272822;
-	border-color:#272822;
-	border-top-left-radius:25px;
-	border-top-right-radius:25px;
+    width:30%;
+    margin-right:2%;
+    float:right;
+    border-style: solid;
+    background-color:white;
+    border-color:#3D5D89;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    overflow-y: auto;
+    border-width: 1px;
 }
 
 .rss-header {
-	top:0px;
-	display:block;
-	height:5%;
-	width:100%;
-	border-style:solid;
-	border-color:#272822;
-	background-color: #272822;
-	font-size:200%;
-	color:white;
-	border-top-left-radius:25px;
-	border-top-right-radius:25px;
+    top:0px;
+    display:block;
+    height:5%;
+    width:100%;
+    border-style:solid;
+    border-color:#3D5D89;
+    background-color: #3D5D89;
+    font-size:200%;
+    color:white;
+    border-top-left-radius:18px;
+    border-top-right-radius:18px;
+    border-width: 1px;
 }
 
-.rss-content {
-	height:90%;
-	bottom:0px;
-	background-color:#d3d3d3;
+tr {
+    line-height:95px;
+}
+
+
+#username-box {
+    display:block;
+    float:left;
+    font-weight: bold;
+    height:20%;
+    width:50%;
+    top:0;
+    left:0;
+}
+
+#message-box {
+    display:inline-block;
+    width:80%;
+    margin-left:5%;
+    margin-right:5%;
 }

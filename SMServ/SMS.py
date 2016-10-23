@@ -37,7 +37,7 @@ def inbound_sms():
     params = {
     'src' : '18053992192', # Sender's phone number
     'dst' : '15712550606',
-    'callbackUrl': "https://stark-stream-72410.herokuapp.com/", # URL that is notified by Plivo when a response is available and to which the response is sent
+    'callbackUrl': 'http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:5000/SMS', # URL that is notified by Plivo when a response is available and to which the response is sent
     'callbackMethod' : "POST" # The method used to notify the callbackUrl
     }
     # Message added

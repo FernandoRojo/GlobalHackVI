@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <title>PlaceID finder</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/markerStyle.css' %}">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="text-right" href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/main/home"><p>Return Home</p></a>
+    <div id="topMap">
+    <h3 class="text-center">Shelter Locator</h3>
+    <div id="map"></div>
+    <div id='floating-panel'>
+        <button id = "toggleBed" value="on" onclick="toggleBeds()">Toggle Available Beds</button>
+    </div>
+
+    <script src="{% static 'js/markers.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIT5WqChLN0yTAnQNB0r5CN-shZrAtxbM&libraries=places&callback=initMap" async defer></script>
+
+
+</body>
+
+</html>
