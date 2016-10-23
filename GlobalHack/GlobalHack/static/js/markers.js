@@ -23,13 +23,10 @@ function initMap() {
                     icon: image
                 });
                 google.maps.event.addListener(marker, 'click', function() {
-                    var lat = place.geometry.location.lat;
-                    var addr = place.formatted_address;
                     addr = addr.split(' ').join('+');
 
                     var url = 'https://www.google.com/maps/dir//' + addr;
-                    console.log(url);
-                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                    infowindow.setContent('<div><strong>plpl' + place.name + '</strong><br>' +
                         'Beds Available: ' + placeDict[place.place_id] + '<br>' +
                         place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
                     infowindow.open(map, this);
@@ -73,6 +70,13 @@ function grabPlaceVars() {
 }
 
 function toggleBeds(){
-  document.getElementById('toggleBed').value = !document.getElementById('toggleBed').value;
+  var toggleB = document.getElementById('toggleBed').value
+  console.log(toggleB);
+  if (toggleB == true){
+    document.getElementById('toggleBed').value = false;
+  }
+  else{
+    document.getElementById('toggleBed').value = true;
+  }
   initMap();
 }
