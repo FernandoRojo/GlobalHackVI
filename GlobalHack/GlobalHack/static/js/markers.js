@@ -23,6 +23,7 @@ function initMap() {
                     icon: image
                 });
                 google.maps.event.addListener(marker, 'click', function() {
+                    var addr = place.formatted_address;
                     addr = addr.split(' ').join('+');
 
                     var url = 'https://www.google.com/maps/dir//' + addr;
