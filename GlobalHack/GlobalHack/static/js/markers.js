@@ -25,6 +25,8 @@ function initMap() {
                 var addr = place.formatted_address;
                 addr = addr.split(' ').join('+');
                 var url = 'https://www.google.com/maps/dir//' + addr;
+		alert(placeDict[place.place_id][1]);
+		alert(placeDit[place.place_id][0]);
                 var contentString = ('<div><strong>' + placeDict[place.place_id][1] + '</strong><br>' +
                     'Beds Available: ' + placeDict[place.place_id][0] + '<br>' +
                     place.formatted_address + '<br> <a href=' + url + '>Directions to Here </a><br></div>');
