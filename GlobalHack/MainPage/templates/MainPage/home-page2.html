@@ -2,26 +2,6 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
-   <meta charset='utf-8'>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="styles.css">
-   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="script.js"></script>
-   <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-   <title>CSS MenuMaker</title>
-</head>
-<body>
-
-<div id='cssmenu'>
-<ul>
-   <li class='active'><a href='#'>Home</a></li>
-   <li><a href='#/shelters/NewShelter'>Forms</a></li>
-   <li><a href='#'>Help</a></li>
-   <li><a href='#'>About</a></li>
-</ul>
-=======
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +51,7 @@
                             <a href="#about">About</a>
                         </li>
                         <li>
-                            <a href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/shelters/NewShelter">Forms</a>
+                            <a href="#forms">Forms</a>
                         </li>
                         <li>
                             <a href="#contact">Contact</a>
@@ -117,33 +97,9 @@
 			       LIVE UPDATES
 			            </div>
 			     <div class="rss-content">
-          <div>
-            <!-- <head>
-              {% load static %}
-
-              <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
-
-              <link href="css/bootstrap.min.css" rel="stylesheet"/>
-
-            </head> -->
-            <h3> Real Time Feed </h3>
-
-                <table>
-                  <tbody>
-                    {% for entry in entries %}
-                    <script src={% static "js/bootstrap.min.js" %}></script>
-                    <tr>
-                      <td><a href="{{entry.link}}">{{entry.title}}</a></li></td>
-                      <td>  {{entry.summary}} </td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-
-
-          </div>
-     </div>
-     </div>
+			            Content
+				         </div>
+			          </div>
        </div>
    </div>
 
@@ -154,7 +110,7 @@
 
     <!-- About Us -->
     <div class="featurette" id="about">
-        <img class="featurette-image img-circle img-responsive pull-right" src= {% static "assets/img/cage.png" %}>
+        <img class="featurette-image img-circle img-responsive pull-right" src= {% static "img/cage.png" %}>
         <h2 class="featurette-heading" style="padding-top:3%;">About Us</h2>
         <p class="lead">We're a team of big dicked comp sci majors looking change the world with our superior intellect</p>
     </div>
@@ -164,7 +120,7 @@
     <!-- Forms -->
     <div class="featurette" id="forms">
         <h2 class="featurette-heading">Forms:
-            <a href="http://ec2-54-200-133-41.us-west-2.compute.amazonaws.com:8002/shelters/NewShelter"><span class="text-muted">Add a Shelter</span></a>
+            <a href="shelters/NewShelter"><span class="text-muted">Add a Shelter</span></a>
         </h2>
     </div>
 
@@ -178,7 +134,6 @@
 
     <hr class="featurette-divider">
 
->>>>>>> 6b5078ec7f3fb26c8f40304c706ee6eeae629fd7
 </div>
 <!-- /.container -->
 
