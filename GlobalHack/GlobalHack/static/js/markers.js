@@ -69,12 +69,13 @@ function grabPlaceVars() {
 }
 
 function toggleBeds(){
-  console.log(this.value);
-  if (this.value == 'on'){
-    (this.value = 'off');
+  console.log(document.getElementById('toggleBed').value);
+  var tog = document.getElementById('toggleBed').value;
+  if (tog == 'on'){
+    (document.getElementById('toggleBed').value = 'off');
   }
   else{
-    this.value = 'on';
+    document.getElementById('toggleBed').value = 'on';
   }
   initMap();
 }
